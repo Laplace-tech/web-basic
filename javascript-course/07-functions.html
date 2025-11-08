@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Functions</title>
+</head>
+
+<body>
+    <script>
+        // function function1() {
+        //     console.log('hello');
+        //     console.log(2 + 2);
+        // }
+
+        // function1();
+        // function1();
+
+        calculateTax(78.96, 10);
+        calculateTax(78.96);
+        
+        function calculateTax(cost, taxPercent = 0.1) {
+            // const tax = cost * 0.1;
+            // const roundedTax = Math.round(tax * 100) / 100;
+            // const totalCost = tax + roundedTax;
+
+            // console.log(`cost: ${cost}`);
+            // console.log(`roundedTax: ${roundedTax}`);
+            // console.log(`totalCost: ${totalCost.toFixed(2)}`);
+
+            const tax = cost * taxPercent;
+            console.log(tax.toFixed(2));
+        }
+    </script>
+
+</body>
+
+</html>

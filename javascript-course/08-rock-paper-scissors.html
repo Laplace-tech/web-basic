@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>function-rock-scissors-paper</title>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <p>Rock Paper Scissors</p>
+  <button onclick="playGame('rock')">rock</button>
+  <button onclick="playGame('scissors')">scissors</button>
+  <button onclick="playGame('paper')">paper</button>
+  <button onclick="resetRecord()">Reset Record</button>
+
+  <script>
+    const record = {
+      wins: 0,
+      losses: 0,
+      ties: 0
+    }
+
+    loadPreviousRecord();
+
+    function playGame(playerMove) {
+      const computerMove = getComputerMove();
+      const result = fightEachOther(playerMove, computerMove);
+
+      updateRecord(result); 
+      saveRecord();
+
+      alert(`You picked ${playerMove}. Computer picked ${computerMove}. You ${result}!\n` +
+        `Wins: ${record.wins}, Losses: ${record.losses}, Ties: ${record.ties}`);
+    }
+
+    function saveRecord() {
+      const jsonRecord = JSON.stringify(record);
+      console.log(`saveRecord(): jsonRecord = ${jsonRecord}`);
+      localStorage.setItem('record', jsonRecord);
+    }
+
+    function loadPreviousRecord() {
+      const storedRecord = localStorage.getItem('record');
+      if (storedRecord) {
+        const parsedRecord = JSON.parse(storedRecord);
+        for (const key in parsedRecord) {
+          if (record.hasOwnProperty(key)) {
+            record[key] = parsedRecord[key] || 0;
+          }
+        }
+      }
+    }
+
+    function getComputerMove() {
+      const random = Math.random();
+      if (random < 1 / 3) return 'rock';
+      else if (random < 2 / 3) return 'scissors';
+      else return 'paper';
+    }
+
+    function fightEachOther(playerMove, computerMove) {
+      if (playerMove === computerMove)
+        return 'ties';
+      else if (
+        playerMove === 'rock' && computerMove === 'scissors' ||
+        playerMove === 'scissors' && computerMove === 'paper' ||
+        playerMove === 'paper' && computerMove === 'rock'
+      ) return 'wins';
+      else
+        return 'losses';
+    }
+
+    function updateRecord(result) {
+      record[result]++;
+      console.log(`updateRecord(): ${JSON.stringify(record)}`);
+    }
+
+    function resetRecord() {
+      record.wins = 0;
+      record.losses = 0;
+      record.ties = 0;
+      saveRecord();
+      alert('Record has been reset!');
+    }
+  </script>
+</body>
+
+</html>

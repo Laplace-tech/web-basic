@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <button onclick="goGame('heads');">heads</button>
+    <button onclick="goGame('tails');">tails</button>
+    <script>
+        function goGame(guessValue) {
+            const computerResult = Math.random() >= 0.5 ? 'heads' : 'tails';
+            if(guessValue === computerResult) {
+                console.log(`you win! [YOU : ${guessValue}, COMPUTER : ${computerResult}]`);
+            } else {
+                console.log(`you lose! [YOU : ${guessValue}, COMPUTER : ${computerResult}]`);
+            }
+        }
+    </script>
+</body>
+</html>

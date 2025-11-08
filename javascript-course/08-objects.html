@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Objects</title>
+</head>
+
+<body>
+  <script>
+    //  const product = {
+    //   name: 'socks',
+    //   price: 1090 
+    //  };
+
+    //  console.log(typeof product);
+    //  console.log(product);
+    //  console.log(`product.name: ${product.name}`);
+    //  console.log(`product price: ${product.price}`);
+
+    //  product.name = 'cotton socks';
+    //  console.log(product);
+
+    //  product.newProperty = 'Anna';
+    //  console.log(product);
+
+    const product2 = {
+      name: 'shirt',
+      'delivery-time': '1 day',
+      rating: {
+        stars: 4.5,
+        count: 87
+      },
+      fun: function functionOfProduct2() {
+        console.log(`call of product2's functiuonOfProduct2()`);
+      }
+    };
+
+    console.log(`product2: ` + JSON.stringify(product2));
+    console.log(`product2.name: ${product2}`);
+    console.log(`product2['name']: ${product2['name']}`);
+    console.log(`product2['delivery-time']: ${product2['delivery-time']}`);
+
+    console.log(`JSON.stringify(product2['rating']): ${JSON.stringify(product2['rating'])}`);
+    console.log(`JSON.stringify(product2.rating): ${JSON.stringify(product2.rating)}`);
+
+    console.log(`product2.rating.stars: ${product2.rating.stars}`);
+    console.log(`product2.rating.count: ${product2.rating.count}`);
+
+    product2.fun();
+
+    console.log(`typeof console: ${typeof console}`);
+    console.log(`typeof console.log: ${typeof console.log}`);
+    console.log(`typeof Math: ${typeof Math}`);
+    console.log(`typeof Math.random: ${typeof Math.random}`);
+
+    console.log(`JSON.stringify(product2): ${JSON.stringify(product2)}`);
+    const jsonString = JSON.stringify(product2);
+    console.log(JSON.parse(jsonString));
+
+    console.log(`'hello'.length: ${'hello'.length}`);
+    console.log(`'hello'.charAt(0): ${'hello'.charAt(0)}`);
+    console.log(`'hello'.toUpperCase(): ${'hello'.toUpperCase()}`);
+
+    const obj1 = {
+      message: 'hello'
+    }
+    const obj2 = obj1;
+
+    obj1.message = "It's Good Day";
+    console.log(`obj1: ${JSON.stringify(obj1)}`);
+    console.log(`obj2: ${JSON.stringify(obj2)}`);
+
+    const obj3 = {
+      message: "It's Good Day"
+    };
+
+    console.log(`obj1 === obj2: ${obj1 === obj2}`);
+    console.log(`obj1 === obj3: ${obj1 === obj3}`);
+
+    const obj4 = {
+      message: "It's Good Day",
+      price: 700
+    }
+    // const message = obj4.message;
+    const {message, price} = obj4;
+    console.log(`message: ${message}`);
+    console.log(`price: ${price}`);
+
+    const obj5 = {
+      message,
+      method() {
+        console.log(`call obj5 method()`)
+      }
+    };
+
+    console.log(`obj5: ${JSON.stringify(obj5)}`);
+    obj5.method();
+  </script>
+</body>
+
+</html>

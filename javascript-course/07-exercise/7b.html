@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Functions</title>
+</head>
+
+<body>
+    <script>
+
+        console.log(convertLength(315327, 'miles', 'km'));
+        console.log(convertLength(3223272, 'km', 'miles'));
+        console.log(convertLength(548, 'km', 'km'));
+
+        function convertLength(length, from, to) {
+            if(from === to) {
+                return `${length}${to}`;
+            }
+
+            let converted = '';
+            if(from === 'miles') {
+                return `${convertToKm(length)}${to}`;
+            } else {
+                return `${convertToMiles(length)}${to}`;
+            }
+        }
+        
+        function convertToKm(miles) {
+            return kilometer = Math.round(miles * 1.6)
+        }
+
+        function convertToMiles(kilometer) {
+            return miles = Math.round(kilometer / (1.6));
+        }
+
+     
+    </script>
+
+</body>
+
+</html>

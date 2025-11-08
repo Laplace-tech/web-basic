@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>cart-quantity</title>
+</head>
+
+<body>
+  <p>Cart Quantity</p>
+  
+  <button onclick="
+    displayQuantity();
+  ">Show Quantity</button>
+  
+  <button onclick="
+    doQuantity(1);
+  ">Add to Cart</button>
+  
+  <button onclick="
+    doQuantity(2);
+  ">+2</button>
+
+  <button onclick="
+    doQuantity(-1);
+  ">-1</button>
+  
+  <button onclick="
+    doQuantity(-2);
+  ">-2</button>
+
+  <button onclick="
+    resetQuantity();
+  ">Reset Cart</button>
+
+  <script>
+    let cartQuantity = 0;
+    
+    function doQuantity(num) {
+      cartQuantity += num;
+      displayQuantity();
+    }
+
+    function resetQuantity() {
+      cartQuantity = 0;
+      displayQuantity();
+    }
+
+    function displayQuantity() {
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    }
+  </script>
+</body>
+
+</html>

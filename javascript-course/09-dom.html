@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DOM</title>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <button>hello</button>
+  <button class="js-button">Second button</button>
+
+  <p>Amazon Shipping Calculator</p>
+  <p>Orders under $40 = +$10 shipping</p>
+  <p>Orders over $40 = FREE shipping</p>
+
+  <input
+    placeholder="Cost of order"
+    class="js-cost-input"
+    onkeydown="handleCostKeyDown(event)"
+  />
+
+  <button onclick="calculateTotal()">Calculate</button>
+
+  <p class="js-total-cost"></p>
+
+  <script>
+    console.log(typeof String(25));
+
+    console.log('25' * 4); // 100
+    console.log('25' - 3); // 22
+    console.log('25' + 1); // 251
+    console.log('25' / 2); // 12.5
+
+    // window.document.querySelector
+    // window.console.log
+    // window.alert
+
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input');
+      let cost = Number(inputElement.value);
+
+      if (cost) {
+        if (cost < 40) {
+          cost += 10;
+        }
+        document.querySelector('.js-total-cost').innerHTML = `Total Cost: $${cost}`;
+      } else {
+        document.querySelector('.js-total-cost').innerHTML = 'no-data';
+      }
+    }
+
+    function handleCostKeyDown(event) {
+      // console.log('typing');
+      // console.log(event.key);
+      if (event.key === 'Enter') {
+        calculateTotal();
+      }
+    }
+
+    // console.log(document.querySelector('button').innerHTML);
+    // document.querySelector('button').innerHTML = 'I Need U';
+
+    // const buttonElement = document.querySelector('.js-button');
+    // console.log(buttonElement);
+    // console.log(typeof buttonElement);
+
+    // console.log(document.title);
+    // document.title = 'Changed Man';
+
+    // console.log(document.body);
+    // console.log(typeof document.body);
+
+    // console.log(document.body.innerHTML);
+    // document.body.innerHTML = '<button>GoodJob</button>';
+  </script>
+</body>
+
+</html>
