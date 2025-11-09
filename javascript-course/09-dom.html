@@ -7,72 +7,71 @@
 </head>
 
 <body>
-  <button>hello</button>
-  <button class="js-button">Second button</button>
+
+  <button class="js-bts-button">I Need U</button>
+  <button class="js-gdragon-button">Crooked</button>
 
   <p>Amazon Shipping Calculator</p>
   <p>Orders under $40 = +$10 shipping</p>
   <p>Orders over $40 = FREE shipping</p>
 
-  <input
-    placeholder="Cost of order"
-    class="js-cost-input"
-    onkeydown="handleCostKeyDown(event)"
-  />
-
+  <input placeholder="Cost of Order" 
+         class="js-cost-input"
+         onkeydown="handleCostKeyDown(event)">
   <button onclick="calculateTotal()">Calculate</button>
 
   <p class="js-total-cost"></p>
 
   <script>
-    console.log(typeof String(25));
+    const inputValue = document.querySelector('.js-cost-input').value;
+    console.log(typeof String(26));
+    console.log(typeof inputValue);
+    console.log(typeof Number(inputValue));
+    console.log(typeof 12);
 
-    console.log('25' * 4); // 100
-    console.log('25' - 3); // 22
-    console.log('25' + 1); // 251
-    console.log('25' / 2); // 12.5
-
-    // window.document.querySelector
-    // window.console.log
-    // window.alert
+    console.log('25' * 5);
+    console.log('25' - 34);
+    console.log('25' + 122);
+    console.log(('25'/120).toFixed(2));
 
     function calculateTotal() {
-      const inputElement = document.querySelector('.js-cost-input');
-      let cost = Number(inputElement.value);
 
-      if (cost) {
-        if (cost < 40) {
-          cost += 10;
+      const inputElement = document.querySelector('.js-cost-input');
+      const totalCostElement = document.querySelector('.js-total-cost');
+      let totalCost = Number(inputElement.value);
+
+      if (totalCost) {
+        if (totalCost < 40) {
+          totalCost += 10;
         }
-        document.querySelector('.js-total-cost').innerHTML = `Total Cost: $${cost}`;
+        totalCostElement.innerHTML = `Total Cost: $${totalCost}`
       } else {
-        document.querySelector('.js-total-cost').innerHTML = 'no-data';
+        totalCostElement.innerHTML = 'No Data!';
       }
     }
 
     function handleCostKeyDown(event) {
-      // console.log('typing');
-      // console.log(event.key);
       if (event.key === 'Enter') {
         calculateTotal();
       }
     }
 
-    // console.log(document.querySelector('button').innerHTML);
-    // document.querySelector('button').innerHTML = 'I Need U';
+    // const btsButtonElement = document.querySelector('.js-bts-button');
+    // console.log(btsButtonElement);
+    // console.log('btsButtonElement.innerHTML: ' + btsButtonElement.innerHTML);
+    // console.log('typeof btsButtonElement: ' + typeof btsButtonElement);
+    // console.log('typeof btsButtonElement.innerHTML: ' + typeof btsButtonElement.innerHTML);
 
-    // const buttonElement = document.querySelector('.js-button');
-    // console.log(buttonElement);
-    // console.log(typeof buttonElement);
+    // console.log('document.title: ' + document.title);
 
-    // console.log(document.title);
-    // document.title = 'Changed Man';
+    // document.title = 'Changed Title';
 
     // console.log(document.body);
     // console.log(typeof document.body);
 
     // console.log(document.body.innerHTML);
-    // document.body.innerHTML = '<button>GoodJob</button>';
+    // document.body.innerHTML = '<button>G-Dragon</button>';
+    // console.log(document.body.innerHTML);
   </script>
 </body>
 

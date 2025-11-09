@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+
+    <input placeholder="Name" 
+        class="js-input-name"
+        onkeydown="
+            submitByEnter(event);
+        ">
+    <button onclick="
+        submitName();
+    ">Submit</button>
+
+    <p class="js-result"></p>
+
+    <script>
+
+        function submitByEnter(event) {
+            if(event.key === 'Enter')
+                submitName();
+        }
+
+        function submitName() {
+            const resultElement = document.querySelector('.js-result');
+            const inputElement = document.querySelector('.js-input-name');
+            const text = inputElement.value;
+
+            if(text) {
+                resultElement.innerHTML = `Your name is ${text}`;
+            } else {
+                resultElement.innerHTML = `Your name is Guest`;
+            }
+            
+        }
+
+    </script>
+</body>
+
+</html>

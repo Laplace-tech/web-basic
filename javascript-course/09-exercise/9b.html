@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <button onclick="clickButton('heads')">heads</button>
+    <button onclick="clickButton('tails')">tails</button>
+    
+    <p class="js-choice"></p>
+    
+    <script>
+        function clickButton(choice) {
+            const paragraphElement = document.querySelector('.js-choice');
+            paragraphElement.innerHTML = `You chose: ${choice}`;
+        }
+    </script>
+</body>
+
+</html>

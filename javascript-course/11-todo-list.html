@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>todolist</title>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+
+  <p>Todo List Practice 1</p>
+  <input placeholder="Todo name" class="js-input-name" onkeydown="callEvent(event)">
+  <button onclick="
+        addName();
+    ">Add</button>
+
+  <p class="js-todo-List"></p>
+
+  <script>
+    const arr = [];
+
+    function addName() {
+      const inputNameElement = document.querySelector('.js-input-name');
+      const nameValue = inputNameElement.value;
+      if (nameValue) {
+        arr.push(nameValue);
+        console.log(arr);
+        inputNameElement.value = '';
+      }
+      showUpTodoList();
+    }
+
+    function showUpTodoList() {
+      const todoListElement = document.querySelector('.js-todo-List');
+      let innerHtml = '';
+      for(const key in arr) {
+        innerHtml = innerHtml + `${arr[key]}`;
+      } todoListElement.innerHTML = innerHtml;
+    }
+    
+    function callEvent(event) {
+      if(event.key === 'Enter')
+        addName();
+    }
+
+  </script>
+</body>
+
+</html>

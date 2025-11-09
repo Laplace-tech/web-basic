@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>DOM Projects</title>
 </head>
 
 <body>
+
   <p>YouTube Subscribe Button</p>
 
-  <button 
-    class="js-subscribe-button"
-    onclick="subscribe()"
-  >
-    Subscribe
-  </button>
+  <button class="js-subscribe-button" onclick="subscribe();
+  ">Subscribe</button>
 
   <script>
     function subscribe() {
-      const button = document.querySelector('.js-subscribe-button');
-      const isSubscribed = button.textContent === 'Subscribed';
+      const subscribeButton = document.querySelector('.js-subscribe-button');
+      const isSubscribed = subscribeButton.innerHTML === 'Subscribed';
 
       if (isSubscribed) {
-        button.textContent = 'Subscribe';
-        button.style.backgroundColor = ''; // 선택적으로 스타일 초기화
+        subscribeButton.innerHTML = 'Subscribe';
+        subscribeButton.style.backgroundColor = '';
       } else {
-        button.textContent = 'Subscribed';
-        button.style.backgroundColor = 'red'; // 시각적으로 구분
+        subscribeButton.innerHTML = 'Subscribed';
+        subscribeButton.style.backgroundColor = 'red';
       }
+
     }
+
   </script>
 </body>
+
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+
+    <button class="js-9a-button">9a</button>
+    <button class="js-9b-button" onclick="
+        doit();
+    ">9b</button>
+
+    <script>
+
+        const buttonElement = document.querySelector('.js-9a-button');
+        console.log(buttonElement);
+        console.log(buttonElement.innerHTML);
+        console.log(buttonElement.innerText);
+        console.log(buttonElement.textContent);
+
+        function doit() {
+            const button = document.querySelector('.js-9b-button');
+            button.innerHTML = '9b done!';
+        }
+
+    </script>
+</body>
+
+</html>
